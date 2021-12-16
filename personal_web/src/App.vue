@@ -2,7 +2,7 @@
   <div id="nav">
     <a-layout class="layout">
       <a-layout-header>
-        <image class="logo" />
+        <div class="logo" style="background:url('./assets/logo.png');width:64px;height:64px;float:left;"/>
         <a-menu
             v-model:selectedKeys="selectedKeys"
             theme="dark"
@@ -44,28 +44,31 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  color: #2c3e50;
+   --green1:#b5c4b1;
+    --green3:#7b8b6f;
+    --white1:#fdf9ee;
+    --white2:#fffaf4;
+    --grey1:#e0e5df;
+    --grey2:#ececea;
+    --grey3:#f0ebe5;
+  color: black;
 }
 .site-layout-content {
   min-height: 280px;
+  width:auto;
   padding: 24px;
   background: #fff;
 }
 #components-layout-demo-top .logo {
   float: left;
-  width: 120px;
-  height: 31px;
+  min-width: 5ch;
+  height: 3ch;
   margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
-}
-.ant-row-rtl #components-layout-demo-top .logo {
-  float: right;
-  margin: 16px 0 16px 24px;
+  
 }
 
 [data-theme='dark'] .site-layout-content {
-  background: #141414;
+  background: black;
 }
 
 </style>
