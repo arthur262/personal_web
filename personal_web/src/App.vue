@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <a-layout class="layout">
-      <a-layout-header>
+      <a-layout-header style="color: var(--white1)">
         <div class="logo" style="background:url('./assets/logo.png');width:64px;height:64px;float:left;"/>
         <a-menu
             v-model:selectedKeys="selectedKeys"
@@ -9,11 +9,38 @@
             mode="horizontal"
             :style="{ lineHeight: '64px' }"
         >
-          <a-menu-item key="1"><router-link to="/Home">Home</router-link></a-menu-item>
-          <a-menu-item key="2">
-            <router-link to="/CV">CV</router-link>
+          <a-menu-item key="1">
+            <router-link to="/Home">
+              <home-outlined />Home
+            </router-link>
           </a-menu-item>
-          <a-menu-item key="3"><router-link to="/Photo">Photo</router-link></a-menu-item>
+          <a-menu-item key="2">
+            <router-link to="/CV">
+              <edit-outlined />CV
+            </router-link>
+            </a-menu-item>
+            <a-menu-item key="3">
+            
+              <a-dropdown>
+                <a class="ant-dropdown-link" style="color: rgba(255, 255, 255, 0.65);" @click.prevent>
+                  Photo
+                  <DownOutlined />
+                </a>
+                <template #overlay>
+                  <a-menu>
+                    <a-menu-item>
+                      <router-link to="/Landscape">Landscape</router-link>
+                    </a-menu-item>
+                    <a-menu-item>
+                      <router-link to="/Sky">Sky</router-link>
+                    </a-menu-item>
+                    <a-menu-item>
+                      <router-link to="/Travel">Travel</router-link>
+                    </a-menu-item>
+                  </a-menu>
+                </template>
+              </a-dropdown>
+          </a-menu-item>
         </a-menu>
       </a-layout-header>
       <router-view/>
@@ -29,12 +56,21 @@
 <script>
 
 import { defineComponent, ref } from 'vue';
+        import { DownOutlined } from '@ant-design/icons-vue';
+        import { EditOutlined } from '@ant-design/icons-vue';
+        import { HomeOutlined } from '@ant-design/icons-vue';
+
 export default defineComponent({
   setup() {
     return {
       selectedKeys: ref(['1']),
     };
   },
+  components: {
+    DownOutlined,
+    EditOutlined,
+    HomeOutlined,
+  }
 
 });
 
@@ -70,5 +106,4 @@ export default defineComponent({
 [data-theme='dark'] .site-layout-content {
   background: black;
 }
-
 </style>

@@ -15,7 +15,7 @@
         </a-col>
         </a-row>
         </div>
-      
+        
     
   </div>
 </template>
@@ -33,7 +33,6 @@ export default {
 </script>
 <style scoped>
 .home{
- 
   height:90ch;
 }
 .home div {
