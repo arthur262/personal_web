@@ -25,7 +25,7 @@
             </p>
             <a-switch
               style="margin-right: 2ch"
-              v-model:checked="checked1"
+              
               checked-children="CN"
               un-checked-children="EN"
             />
@@ -99,42 +99,9 @@
             </div>
             <div></div>
           </a-layout-content>
-          <a-layout-content
-            style="margin: 0 auto; width: 80%; padding: 4ch; margin-top: 1ch"
-          >
-            <div>
-              <a-card hoverable style="width: 250px">
-                <template #cover>
-                  <img
-                    alt="example"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                  />
-                </template>
-
-                
-                  <h3>C</h3>
-                
-              </a-card>
-            </div>
-          </a-layout-content>
+         <Skills/>
         </div>
-        <a-anchor
-          :target-offset="targetOffset"
-          style="float: right; margin-top: 20%"
-        >
-          <a-anchor-link
-            href="#components-anchor-demo-basic"
-            title="Basic demo"
-          />
-          <a-anchor-link
-            href="#components-anchor-demo-static"
-            title="Static demo"
-          />
-          <a-anchor-link href="#API" title="API">
-            <a-anchor-link href="#Anchor-Props" title="Anchor Props" />
-            <a-anchor-link href="#Link-Props" title="Link Props" />
-          </a-anchor-link>
-        </a-anchor>
+        <CVSide/>
       </a-layout-content>
     </a-layout>
   </div>
@@ -142,18 +109,12 @@
 
 <script>
 import axios from "axios";
-import { defineComponent, reactive, toRefs } from "vue";
+import Skills from "../components/CV_Skill.vue";
+import CVSide from "../components/CV_Side.vue"
 const basicURL = "https://jsonplaceholder.typicode.com/todos/1";
-export default defineComponent({
-  components: {},
+export default ({
+  components: {Skills,CVSide},
   setup() {
-    const state = reactive({ checked1: false });
-
-    return {
-      targetOffset: undefined,
-      showInkInFixed: true,
-      ...toRefs(state),
-    };
   },
 
   data() {
@@ -173,7 +134,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.getdata();
-    this.targetOffset = window.innerHeight / 1.5;
+    
   },
   methods: {
     getdata() {

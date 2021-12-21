@@ -1,13 +1,154 @@
 {
-    "phone_CN":"13957510004",
-    "phone_CA":"+1(778)8635990",
-    "email": "arthur262@outlook.com",
-    "github":"https://github.com/arthur262",
-    "Currentyear":"Year 3 Fall",
-    "Bacher":"Bachelor of Computer Science",
-    "School":"Dalhousie University, Halifax, NS",
-    "School_Date":"2019 Sept-Present",
-    "CGPA":"CGPA: 3.07",
-    "Education_content":"Courses include Algorithm, Database System, Networking, Software Development, Computer system, and Front-end and Back-end Web development"
+  "phone_CN": "13957510004",
+  "phone_CA": "+1(778)8635990",
+  "email": "arthur262@outlook.com",
+  "github": "https://github.com/arthur262",
+  "Currentyear": "Year 3 Fall",
+  "Bacher": "Bachelor of Computer Science",
+  "School": "Dalhousie University, Halifax, NS",
+  "School_Date": "2019.Sept-Present",
+  "CGPA": "CGPA: 3.07",
+  "Education_content": "Courses include Algorithm, Database System, Networking, Software Development, Computer system, and Front-end and Back-end Web development",
 
+  "drscribe": false,
+  "Projects": "Projects",
+  "LanguageSkills": "Ability",
+  "Language": [
+    "HTML",
+    "JavaScript",
+    "CSS",
+    "R",
+    "XML",
+    "Mobile Application",
+    "C",
+    "Python",
+    "Java",
+    ".json"
+  ],
+  "DataBase": ["MySQL"],
+  "Framework": ["Vue", "Tomcat"],
+  "UI": ["Element-UI", "Ant-design"],
+  "Operation": ["Windows", "Macos", "Lunix(Deepin)", "Lunix(Ubuntu)"],
+  "Techlist": [
+    {
+      "title": "Technical",
+      "children": [
+        {
+          "description": "Ability to program HTML, CSS, and JavaScript during website development"
+        },
+        {
+          "description": "Skilled in using XML and Java on Mobile Application project development."
+        },
+        {
+          "description": "Familiar with analyzing data and coding projects through Python"
+        },
+        {
+          "description": "Using the C code to deal with some single chip code"
+        },
+        { "description": "Familiar calculation with R" }
+      ]
+    },
+    {
+      "title": "Database system",
+      "children": [
+        {
+          "description": "Building MySQL database, and processing data through it."
+        },
+        { "description": "Using MySQL at back-end web development." }
+      ]
+    },
+    {
+      "title": "Tools",
+      "children": [
+        {
+          "description": "Familiar with using Git as well as using Git CI/CD tool to debug."
+        },
+        {
+          "description": "Familiar with Junit debugging tool, and PowerShell debug tools of multiple programming languages."
+        },
+        { "description": "Familiar with using JUNIT debugging tool" },
+        {
+          "description": "Familiar with using Microsoft suites and Advanced functions, including using Macro."
+        },
+        {
+          "description": "Using the Premiere pro, Lighting room, Photoshop."
+        }
+      ]
+    },
+    {
+      "title": "Framework",
+      "children": [
+        {
+          "description": "Able to use the Vue (Element-design, ant design) to design a dynamic web"
+        }
+      ]
+    },
+    {
+      "title": "Communicate",
+      "children": [
+        {
+          "description": "Familiar with using axios method to exchange .Json package with back-end"
+        }
+      ]
+    },
+    {
+      "title": "Operation System",
+      "children": [
+        {
+          "description": "Familiar with Linux(Ubuntu , deepin), and Windows PowerShell command"
+        }
+      ]
+    }
+  ],
+  "Project": [
+    {
+      "Title": "Simple multi thread server project",
+      "TimeRanges": "Sept-Oct.2021",
+      "github": "Github:",
+      "children": [
+        {
+          "details": "The use of Java.net to achieve the client and server communication, and the use of the basic multi-threading rules, up to 20 users at the same time to support access, at the same time the use of real-time thread monitoring for some of the user's special code mode switch, such as encryption communication and thread broadcast."
+        }
+      ]
+    },
+    {
+      "Title": "Robot Project, Aseba",
+      "TimeRanges": "Feb-March.2020",
+      "github": "Github:",
+      "children": [
+        {
+          "details": "Design and test the robot to avoid obstacles automatically and find objects automatically by using sensors"
+        },
+        {
+          "details": "Competition, and complete the analysis, implementation, and testing"
+        }
+      ]
+    },
+    {
+        "Title": "Personal Web Project, Vue ",
+        "TimeRanges": "Oct.2021-present",
+        "github": "GitHub: https://github.com/arthur262/personal_web.git",
+        "children": [
+          {
+            "details": "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images"
+          },
+          {
+            "details": "Implementation technology: front and rear end separation, Axios to communicate and My SQL as the database in Dal server, and .json with switch package."
+          }
+        ]
+      },
+      {
+        "Title": "University Course Election Assistance App",
+        "TimeRanges": "Oct. 2021-present",
+        "github": "GitHub: https://github.com/arthur262/dalhousie_app.git",
+        "children": [
+          {
+            "details": "Ongoing outside class project with three other peers, using Android develop Ide to develop a mobile app, which can help university students plan for future classes, and help them organize the weekly schedule"
+          },
+          {
+            "details": "My main job is about the Team leader and UI and assistant with back-end which is about to do the Home page and giving student a Google map location to see the building, and achieve functions of this page, I am using XML to design UI, and using java to do back-end programing with several APIs. Also, I would be the tester of this project, I am currently using JUNIT to do."
+          }
+        ]
+      }
+  ]
 }
