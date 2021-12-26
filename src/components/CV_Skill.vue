@@ -1,13 +1,13 @@
 <template>
   <div style="width: fit-content; height: fit-content">
       <!--  Ability Box    -->
-    <div class="box"> 
+    <div class="abilitybox" id="Ability"> 
       <h3>{{ LanguageSkills }}</h3>
       <a-descriptions bordered>
-        <a-descriptions-item label="Basic Labguages">
+        <a-descriptions-item label="Basic Languages">
           <p
             style="line-height: 0.5em"
-            v-for="iteam in Language"
+            v-for="iteam in this.Language"
             :key="iteam.id"
           >
             {{ iteam }}
@@ -52,7 +52,7 @@
         <br />
       </a-descriptions>
     </div>
-    <div v-if="false">
+    <div v-if="false" class="detail">
       <ul v-for="iteam in Techlist" :key="iteam.id">
         <h3>{{ iteam.title }}</h3>
         <ul>
@@ -63,25 +63,25 @@
       </ul>
     </div>
     <!--  Project Box    -->
-    <div class="box" style="margin-left:2ch">
+    <div class="box" style="margin-left:2ch" id="Project">
     <div style="display:flex" >
     <!--<bars-outlined/>-->
     <h2>{{ Projects }}</h2>
     </div>
-    <div style="display: flex">
+    <div style="display: flex; height: fit-content">
       <div v-for="iteam in Project" :key="iteam.id" class="card">
-        <a-card hoverable class="container">
-          <template #cover @click="show">
-            <img src="" />
-          </template>
+        <a-card hoverable class="container" @mouseenter="move" >
+         <div style="margin:0 auto; width:fit-content; margin-bottom:2ch;">
+            <img v-bind:src="iteam.pciture"  height="200" width="200" size="10ch">
+         </div>
           <a-card-meta style="padding: 1ch">
             <template #description>
-              <h4>{{ iteam.Title }}</h4>
+              <h2>{{ iteam.Title }}</h2>
               <p>
                 <b>{{ iteam.TimeRanges }}</b>
               </p>
               <p>{{ iteam.github }}</p>
-              <div v-show="false">
+              <div v-show="describe_OP">
                 <ol
                   class="C_content"
                   v-for="iteamson in iteam.children"
@@ -100,31 +100,33 @@
 </template>
 
 <script>
-//import { defineComponent } from 'vue';
-//import {barsoutlined} from '@ant-design/icons-vue';
+
 import axios from "axios";
-const basicURL = "https://jsonplaceholder.typicode.com/todos/1";
+const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/CV_EN.json";
+
 export default ({
   setup() {},
   data() {
     return {
-      drscribe:"",
+      describe_OP:false,
       Projects: "",
       LanguageSkills: "",
-      Language: "",
-      DataBase: "",
-      Framework: "",
-      UI: "",
-      Operation: "",
-      Techlist: "",
-      Project: "",
+      Language: [],
+      DataBase: [],
+      Framework: [],
+      UI: [],
+      Operation:[],
+      Techlist: [],
+      Project: [],
     };
   },
    mounted : function(){
           this.getdata();
       },
   methods: {
-     
+    move(){
+      this.describe_OP =!this.describe_OP;
+    },
        getdata() {
       axios
         .get(
@@ -138,14 +140,14 @@ export default ({
           }
         )
         .then((response) => {
-          this.drscribe = response.data.title;
-          this.Projects = response.data.title;
-          this.LanguageSkills = response.data.title;
-          this.Language = response.data.title;
-          this.DataBase = response.data.title;
-          this.UI = response.data.title;
-          this.Operation = response.data.title;
-          this.Project = response.data.title;
+          this.Projects = response.data.Projects;
+          this.LanguageSkills = response.data.LanguageSkills;
+          this.Language = response.data.Language;
+          this.Framework = response.data.Framework;
+          this.DataBase = response.data.DataBase;
+          this.UI = response.data.UI;
+          this.Operation = response.data.Operation;
+          this.Project = response.data.Project;
   
         })
         .catch(function (error) {
@@ -173,12 +175,24 @@ export default ({
   width: fit-content;
 }
 .box{
-    width: fit-content;
+    width: inherit;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
   margin-top: 4ch;
   border-radius: 1.5ch;
   margin: 3ch auto 3ch;
   background: whitesmoke;
+}
+.abilitybox{
+   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  padding: 4ch;
+  min-width:fit-content;
+  max-width: 120ch;
+  margin: 4ch auto 4ch;
+  background: whitesmoke;
+}
+.detail{
+  min-width:0px;
+  max-width: fit-content;
 }
 </style>

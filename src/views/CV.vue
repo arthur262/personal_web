@@ -9,7 +9,8 @@
           @back="() => $router.go(-1)"
         />
       </a-layout-header>
-      <a-row class="container">
+      <!-- Switch box -->
+      <a-row >
         <a-col
           :xs="{ span: 5, offset: 1 }"
           :lg="{ span: 3, offset: 2 }"
@@ -38,8 +39,7 @@
           </div>
         </a-col>
       </a-row>
-      <div style="overflow: auto"></div>
-
+      <!-- content-->
       <a-layout-content class="Content">
         <div>
           <a-layout-header
@@ -47,7 +47,8 @@
             style="
               background-color: unset;
               text-align: center;
-              min-width: 120ch;
+              min-width: fit-content;
+              max-width:160ch;
               line-height: 4ch;
               padding-top: 5ch;
               height: fit-content;
@@ -82,7 +83,8 @@
               <h3>Current: {{ Currentyear }}</h3>
             </div>
           </a-layout-header>
-          <a-layout-content class="education">
+          <!--  Bckground education-->
+          <a-layout-content class="education" id="Education">
             <div>
               <h1 class="Label">Education BackGround</h1>
               <h3 style="font-size: 1.3em">
@@ -97,7 +99,6 @@
                 <li>{{ Education_content }}</li>
               </ul>
             </div>
-            <div></div>
           </a-layout-content>
          <Skills/>
         </div>
@@ -111,7 +112,7 @@
 import axios from "axios";
 import Skills from "../components/CV_Skill.vue";
 import CVSide from "../components/CV_Side.vue"
-const basicURL = "https://jsonplaceholder.typicode.com/todos/1";
+const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/CV_EN.json";
 export default ({
   components: {Skills,CVSide},
   setup() {
@@ -150,16 +151,16 @@ export default ({
           }
         )
         .then((response) => {
-          this.phone_CN = response.data.title;
-          this.phone_CA = response.data.title;
-          this.email = response.data.title;
-          this.github = response.data.title;
-          this.Currentyear = response.data.title;
-          this.Bacher = response.data.title;
-          this.School = response.data.title;
-          this.School_Date = response.data.title;
-          this.CGPA = response.data.title;
-          this.Education_content = response.data.title;
+          this.phone_CN = response.data.phone_CN;
+          this.phone_CA = response.data.phone_CA;
+          this.email = response.data.email;
+          this.github = response.data.github;
+          this.Currentyear = response.data.Currentyear;
+          this.Bacher = response.data.Bacher;
+          this.School = response.data.School;
+          this.School_Date = response.data.School_Date;
+          this.CGPA = response.data.CGPA;
+          this.Education_content = response.data.Education_content;
           
         })
         .catch(function (error) {
@@ -185,7 +186,8 @@ export default ({
 }
 .education {
   margin: 0 auto;
-  width: 80%;
+  min-width: fit-content;
+  max-width: 160ch;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
   margin-top: 4ch;
@@ -196,7 +198,8 @@ export default ({
   display: flex;
   max-width: 200ch;
   min-width: 130ch;
-  height: 200ch;
+  min-height: 150ch;
+  max-height: fit-content;
   margin: 5ch auto 3ch;
 }
 .switch {

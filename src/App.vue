@@ -91,7 +91,7 @@ export default defineComponent({
 }
 .site-layout-content {
   min-height: 280px;
-  width:auto;
+  width:max-content;
   padding: 24px;
   background: #fff;
 }

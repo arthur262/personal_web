@@ -1,22 +1,18 @@
 <template>
-  <a-affix :offset-top="120" style="float: right; margin-top: 20%">
+  <a-affix :offset-top="200" style="margin-top: 20%;margin-left:2ch;">
         <a-anchor
           :target-offset="targetOffset"
           
         >
           <a-anchor-link
-            href="#components-anchor-demo-basic"
+            href="#Education"
             title="Education Background"
           />
           <a-anchor-link
-            href="#components-anchor-demo-static"
+            href="#Ability"
             title="Ability"
           />
-          <a-anchor-link href="#API" title="Project">
-            <a-anchor-link href="#Anchor-Props" title="Simple multi thread server project" />
-            <a-anchor-link href="#Anchor-Props" title="Robot Project, Aseba" />
-            <a-anchor-link href="#Anchor-Props" title="Simple multi thread server project" />
-            <a-anchor-link href="#Link-Props" title="University Course Election Assistance App" />
+          <a-anchor-link href="#Project" title="Project">
           </a-anchor-link>
         </a-anchor>
         </a-affix>
