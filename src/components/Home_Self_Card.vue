@@ -1,6 +1,10 @@
 <template>
   <div class="Self_Card" id="SelfCard">
-    <div class="left_trans">
+    <div class="left_trans" v-if="false">
+      
+    </div>
+
+    <div class="back">
       <div class="wrap">
         <div class="box-top">
           <div class="image"></div>
@@ -29,9 +33,7 @@
         </div>
       </div>
     </div>
-
-    <div class="back"></div>
-    <div class="right_trans"></div>
+    <div class="right_trans" v-if="false"></div>
   </div>
 </template>
 
@@ -46,24 +48,24 @@ export default {};
   padding: 0;
   margin: 0 auto;
   width: 100%;
-  height: 70ch;
+  height: auto;
   display: flex;
 }
 
 .back {
-  width: 200ch;
+  width:100%;
   margin: 0 auto;
   background-image: url("http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/3G8A2675.jpg");
-  background-size: 100% 100%;
-  height: 70ch;
+  background-size: 100% ;
+  height: 150ch;
 }
 
 .wrap {
-  margin: 15ch 4ch 0 2ch;
-  float: right;
+  margin: 35ch 4ch 0 30ch;
+  float: left;
   position: relative;
-  width: 240px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
   overflow: hidden;
@@ -71,19 +73,19 @@ export default {};
 }
 
 .right_trans {
-  width: calc((100%-200ch) / 2);
+  width: calc((100%-80%) / 2);
   background-image: linear-gradient(270deg, #2f4f4f, #000000);
 }
 
 .left_trans {
-  width: calc((100%-200ch) / 2);
+  width: calc((100%-80%) / 2);
   background-image: linear-gradient(90deg, #2f4f4f, #000000);
 }
 
 .box-top {
   position: relative;
-  width: 240px;
-  height: 100px;
+  width: 400px;
+  height: 200px;
   background-color: #666666;
   display: flex;
   justify-content: center;
@@ -92,22 +94,22 @@ export default {};
 
 .box-top::after {
   content: "";
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   clip-path: polygon(50% 40%, 0 0, 100% 0);
   background-color: #666666;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  bottom: -38px;
+  bottom: -70px;
   z-index: 999;
 }
 
 .image {
   position: absolute;
-  top: 10px;
-  width: 60px;
-  height: 60px;
+  top: 40px;
+  width: 120px;
+  height: 120px;
   background-image: url("http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/mmexport1640288180459.png");
   background-size: cover;
   border: 3px solid #cccccc;
@@ -119,17 +121,18 @@ export default {};
 /* -------------------------------------------- */
 .box-bottom {
   position: absolute;
-  top: 100px;
+  top: 220px;
   line-height: 1.5em;
-  width: 240px;
-  height: 60px;
+  font-size:2em ;
+  width: 400px;
+  height: 200px;
   text-align: center;
 }
 
 .box-bottom2 {
   position: absolute;
-  width: 240px;
-  height: 100px;
+  width: 400px;
+  height: 200px;
   padding: 0;
   transition: 0.5s;
   line-height: 0.5em;
@@ -151,7 +154,7 @@ export default {};
 .box-bottom h2::after {
   content: "";
   display: block;
-  width: 200px;
+  width: 250px;
   height: 2px;
   background-color: #000;
   position: absolute;
@@ -160,13 +163,12 @@ export default {};
 }
 
 .box-bottom2 {
-  top: 300px;
+  top: 400px;
   height: 200px;
 }
-
-.box-bottom2 li {
-  margin: 22px;
-  font-size: 0.5em;
+.box-bottom2 ul {
+  margin: 5ch ;
+  font-size: 2.5em;
   transition: 0.2s;
 }
 
@@ -174,22 +176,22 @@ export default {};
 /* animation */
 /* -------------------------------------------- */
 .wrap:hover .box-top {
-  height: 50px;
+  height: 125px;
 }
 
 .wrap:hover .image {
-  width: 35px;
-  height: 35px;
+  width: 90px;
+  height: 90px;
   border-width: 1px;
-  transform: translate(-90px, -5px);
+  transform: translate(-100px, -20px);
 }
 
 .wrap:hover .box-bottom {
-  top: 300px;
+  top: 400px;
 }
 
 .wrap:hover .box-bottom2 {
-  top: 50px;
+  top: 150px;
 }
 
 .Self_Card{

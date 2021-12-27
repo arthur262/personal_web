@@ -4,6 +4,7 @@ import CV from '../views/CV.vue'
 import Landscape from '../views/Landscape.vue'
 import Sky from '../views/Sky.vue'
 import Travel from '../views/Travel.vue'
+import Photo from '../views/Photo.vue'
 const routes = [
   {
     path: '/',
@@ -22,17 +23,22 @@ const routes = [
     component: CV
   },
   {
-    path: '/Landscape',
+    path: '/Photo',
+    name: 'Photo',
+    component: Photo
+    },
+  {
+    path: '/Photo/Landscape',
     name: 'Landscape',
     component: Landscape
     },
     {
-    path: '/Sky',
+    path: '/Photo/Sky',
     name: 'Sky',
     component: Sky
     },
     {
-    path: '/Travel',
+    path: '/Photo/Travel',
     name: 'Travel',
     component: Travel
   },

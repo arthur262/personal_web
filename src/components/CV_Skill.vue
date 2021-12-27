@@ -4,18 +4,18 @@
     <div class="abilitybox" id="Ability"> 
       <h3>{{ LanguageSkills }}</h3>
       <a-descriptions bordered>
-        <a-descriptions-item label="Basic Languages">
+        <a-descriptions-item label="Basic Languages" style="font-size:1.7em;">
           <p
-            style="line-height: 0.5em"
+            style="line-height: 0.5em;font-size:0.7em;"
             v-for="iteam in this.Language"
             :key="iteam.id"
           >
             {{ iteam }}
           </p>
         </a-descriptions-item>
-        <a-descriptions-item label="Operation Systeam">
+        <a-descriptions-item label="Operation Systeam" style="font-size:1.7em;">
           <p
-            style="line-height: 0.5em"
+            style="line-height: 0.5em;font-size:0.7em;"
             v-for="iteam in Operation"
             :key="iteam.id"
           >
@@ -25,8 +25,8 @@
       </a-descriptions>
       <br />
       <a-descriptions bordered>
-        <a-descriptions-item label="UI">
-          <p style="line-height: 0.5em" v-for="iteam in UI" :key="iteam.id">
+        <a-descriptions-item label="UI" style="font-size:2em;">
+          <p style="line-height: 0.5em; font-size:0.7em;" v-for="iteam in UI" :key="iteam.id">
             {{ iteam }}
           </p>
         </a-descriptions-item>
@@ -40,9 +40,9 @@
           </p>
         </a-descriptions-item>
 
-        <a-descriptions-item label="Framework">
+        <a-descriptions-item label="Framework" style="font-size:2em;">
           <p
-            style="line-height: 0.5em"
+            style="line-height: 0.5em; font-size:0.7em;"
             v-for="iteam in Framework"
             :key="iteam.id"
           >
@@ -80,7 +80,8 @@
               <p>
                 <b>{{ iteam.TimeRanges }}</b>
               </p>
-              <p>{{ iteam.github }}</p>
+            <h4>  Github : </h4>
+               <a v-bind:href="iteam.github "> {{ iteam.github }}</a>
               <div v-show="describe_OP">
                 <ol
                   class="C_content"
@@ -102,7 +103,7 @@
 <script>
 
 import axios from "axios";
-const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/CV_EN.json";
+const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
 export default ({
   setup() {},
@@ -125,7 +126,7 @@ export default ({
       },
   methods: {
     move(){
-      this.describe_OP =!this.describe_OP;
+      this.describe_OP =true;
     },
        getdata() {
       axios

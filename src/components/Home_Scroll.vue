@@ -1,21 +1,16 @@
 <template>
-  <div class="scroll">
-      <div v-for=" item in list" :key="item.id">
-          <div class="image" v-bind:src="item.image">
-          </div>
-          <div class="title"><h1>{{item.Title}}<h1/></div>
-          <div v-for=" items in item.children" :key="items.id"
-          style="width:inherit;height:10ch;">
-              {{items.details}}
-          </div>
-      </div>
-
+  <div class="scroll"  id="scroll" v-for=" item in list" :key="item.id">
+    
+        <section class="img" v-bind:style="{ 'background-image': 'url(' + item.image + ')','background-repeat':'no-repeat','background-size':'100% 100%' }">  
+          {{item.Title}}
+          </section>
+        <div class="describe"  v-for=" items in item.children" :key="items.id">{{items.details}}</div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/Home_Scroll.json";
+const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/Home/Home_Scroll_EN.json";
 export default {
     components: {},
   setup() {
@@ -23,12 +18,13 @@ export default {
 
   data() {
     return {
-      list:"",
+      "list":""
       
     };
   },
   mounted: function () {
     this.getdata();
+    
     
   },
   methods: {
@@ -52,38 +48,64 @@ export default {
           console.log(error);
         });
     },
+
+    
   },
 
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .scroll {
     margin: 0;
     padding: 0;
-    height: 100vh;
     width: 100%;
-    overflow-x: hidden;
-    perspective:3px;
+    height: auto;
 }
-.scroll div {
-    position: relative;
+::-webkit-scrollbar{
+    display: none;
+}
+section{
+    height: 100vh;
+    background-color: #c4cbcf;
+    color: #fff;
+    font-size: 15vh;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    align-items: center;
+}
+.describe{
+    height: fit-content;
+    background-color: #c4cbcf;
+    color: #fff;
+    font-size: 4em;
+    display: flex;
+    padding:1ch;
     justify-content: center;
     align-items: center;
-    display: flex;
-    font-size : 30px;
-    letter-spacing: 1ch;
+    
 }
-.image{
-    transform: translateZ(-1px) scale(1.6);
-    background-size: cover;
-    height: 100vh;
-    z-index: -1;
-}
-.title {
-    z-index: -1;
-    transform: translateZ(1px) translateY(-30vh);
-    font-size:30px;
-    color: snow;
+.img{
+    background-size: auto;
+    background-position: center;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    user-select: none;
+    cursor: default;
+    
 }
 </style>
+
+
+
+    
+
+
+
+
+
+ 
+ 

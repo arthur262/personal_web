@@ -20,26 +20,10 @@
             </router-link>
             </a-menu-item>
             <a-menu-item key="3">
+              <router-link to="/Photo">
+              <edit-outlined />Photo
+            </router-link>
             
-              <a-dropdown>
-                <a class="ant-dropdown-link" style="color: rgba(255, 255, 255, 0.65);" @click.prevent>
-                  Photo
-                  <DownOutlined />
-                </a>
-                <template #overlay>
-                  <a-menu>
-                    <a-menu-item>
-                      <router-link to="/Landscape">Landscape</router-link>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <router-link to="/Sky">Sky</router-link>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <router-link to="/Travel">Travel</router-link>
-                    </a-menu-item>
-                  </a-menu>
-                </template>
-              </a-dropdown>
           </a-menu-item>
         </a-menu>
       </a-layout-header>
@@ -56,7 +40,6 @@
 <script>
 
 import { defineComponent, ref } from 'vue';
-        import { DownOutlined } from '@ant-design/icons-vue';
         import { EditOutlined } from '@ant-design/icons-vue';
         import { HomeOutlined } from '@ant-design/icons-vue';
 
@@ -67,7 +50,6 @@ export default defineComponent({
     };
   },
   components: {
-    DownOutlined,
     EditOutlined,
     HomeOutlined,
   }

@@ -104,7 +104,7 @@
       "pciture":"http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/istockphoto-1080052820-170667a.jpg",
       "Title": "Simple multi thread server project",
       "TimeRanges": "Sept-Oct.2021",
-      "github": "Github:",
+      "github": "",
       "children": [
         {
           "details": "The use of Java.net to achieve the client and server communication, and the use of the basic multi-threading rules, up to 20 users at the same time to support access, at the same time the use of real-time thread monitoring for some of the user's special code mode switch, such as encryption communication and thread broadcast."
@@ -115,7 +115,7 @@
       "pciture":"http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/7d9b1d662b28cd365b33a01a3d0288e1.jpg",
       "Title": "Robot Project, Aseba",
       "TimeRanges": "Feb-March.2020",
-      "github": "Github:",
+      "github": "",
       "children": [
         {
           "details": "Design and test the robot to avoid obstacles automatically and find objects automatically by using sensors"
@@ -129,7 +129,7 @@
       "pciture":"http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/6128107.png",
         "Title": "Personal Web Project, Vue ",
         "TimeRanges": "Oct.2021-present",
-        "github": "GitHub: https://github.com/arthur262/personal_web.git",
+        "github": "https://github.com/arthur262/personal_web.git",
         "children": [
           {
             "details": "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images"
@@ -143,7 +143,7 @@
         "pciture":"http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/%E4%B8%8B%E8%BD%BD.png",
         "Title": "University Course Election Assistance App",
         "TimeRanges": "Oct. 2021-present",
-        "github": "GitHub: https://github.com/arthur262/dalhousie_app.git",
+        "github": "https://github.com/arthur262/dalhousie_app.git",
         "children": [
           {
             "details": "Ongoing outside class project with three other peers, using Android develop Ide to develop a mobile app, which can help university students plan for future classes, and help them organize the weekly schedule"

@@ -45,6 +45,7 @@
           <a-layout-header
             class="Content_Header"
             style="
+
               background-color: unset;
               text-align: center;
               min-width: fit-content;
@@ -53,6 +54,7 @@
               padding-top: 5ch;
               height: fit-content;
               display: flex;
+              margin:0 auto;
             "
           >
             <div class="ID"></div>
@@ -112,7 +114,7 @@
 import axios from "axios";
 import Skills from "../components/CV_Skill.vue";
 import CVSide from "../components/CV_Side.vue"
-const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/CV_EN.json";
+const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 export default ({
   components: {Skills,CVSide},
   setup() {
@@ -187,7 +189,7 @@ export default ({
 .education {
   margin: 0 auto;
   min-width: fit-content;
-  max-width: 160ch;
+  max-width: 140ch;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
   margin-top: 4ch;

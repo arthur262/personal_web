@@ -2,17 +2,18 @@
   <a-affix :offset-top="200" style="margin-top: 20%;margin-left:2ch;">
         <a-anchor
           :target-offset="targetOffset"
+          @click="custormAnchor"
           
         >
           <a-anchor-link
-            href="#Education"
-            title="Education Background"
+            href="Education"
+            title="Education"
           />
           <a-anchor-link
-            href="#Ability"
+            href="Ability"
             title="Ability"
           />
-          <a-anchor-link href="#Project" title="Project">
+          <a-anchor-link href="Project" title="Project">
           </a-anchor-link>
         </a-anchor>
         </a-affix>
@@ -32,7 +33,15 @@ export default defineComponent({
   },
    mounted: function () {
      this.targetOffset = window.innerHeight / 1.5;
-   }
+   },
+   methods:{
+     custormAnchor(e,link) { 
+     e.preventDefault();
+     var scrolls=document.getElementById(link.href);
+     scrolls.scrollIntoView({block:'start',behavior:'smooth'});     
+                 
+},
+    }
 
 })
 </script>

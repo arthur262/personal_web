@@ -7,10 +7,21 @@
           
         >
           <a-anchor-link
-            href="#SelfCard"
-            title="Introduce Myself"
-            
+          class="test2"
+            href="intro"
+            title="Introduction"
         ></a-anchor-link>
+         <a-anchor-link
+          class="test2"
+            href="SelfCard"
+            title="Self Card"
+        ></a-anchor-link>
+         <a-anchor-link
+          class="test2"
+            href="scroll"
+            title="Life Map"
+        ></a-anchor-link>
+         
         </a-anchor>
         </a-affix>
   </div>
@@ -43,9 +54,9 @@ export default defineComponent({
 })
 </script>
 
-<style >
-.ant-anchor-link-title{
-  color:#FFFFFF;
+<style>
+.test2>*{
+  color: white !important;
 }
 
 </style>

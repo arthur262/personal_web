@@ -1,7 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container" id="intro">
         <div class="title"> <h1>Rolling Rock<br/>  Arthur </h1>
-        <a-button class="btn" :ghost="true" href="#CV">My CV <br/><h2 style="margin:0;padding:0;color:#f5f5f5;">+</h2></a-button>
+        <a-button class="btn" :ghost="true" href="#CV">
+          <b> My CV</b>
+           <br/>
+          <h2 style="margin:0;padding:0;color:#f5f5f5;"><b>+</b></h2>
+          </a-button>
         </div>
         
         
@@ -64,8 +68,13 @@ export default {
   margin-left: 42.5% ;
   margin-right: 42.5% ;
   width: 15%;
-  height: 9ch;
+  height: 7ch;
   border-radius:10ch;
+  font-size: 1.2em;
+}
+.btn:hover{
+  font-size: 1.5em;
+  padding:2ch;
 }
 
 
