@@ -1,5 +1,5 @@
 <template>
-  <a-affix :offset-top="200" style="margin-top: 20%;margin-left:2ch;">
+  <a-affix :offset-top="200" style="position: absolute; right:5%;top:40%;">
         <a-anchor
           :target-offset="targetOffset"
           @click="custormAnchor"

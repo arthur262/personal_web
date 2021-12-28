@@ -54,7 +54,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style >
 .test2>*{
   color: white !important;
 }

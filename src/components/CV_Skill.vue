@@ -1,5 +1,5 @@
 <template>
-  <div style="width: fit-content; height: fit-content">
+  <div >
       <!--  Ability Box    -->
     <div class="abilitybox" id="Ability"> 
       <h3>{{ LanguageSkills }}</h3>
@@ -63,40 +63,7 @@
       </ul>
     </div>
     <!--  Project Box    -->
-    <div class="box" style="margin-left:2ch" id="Project">
-    <div style="display:flex" >
-    <!--<bars-outlined/>-->
-    <h2>{{ Projects }}</h2>
-    </div>
-    <div style="display: flex; height: fit-content">
-      <div v-for="iteam in Project" :key="iteam.id" class="card">
-        <a-card hoverable class="container" @mouseenter="move" >
-         <div style="margin:0 auto; width:fit-content; margin-bottom:2ch;">
-            <img v-bind:src="iteam.pciture"  height="200" width="200" size="10ch">
-         </div>
-          <a-card-meta style="padding: 1ch">
-            <template #description>
-              <h2>{{ iteam.Title }}</h2>
-              <p>
-                <b>{{ iteam.TimeRanges }}</b>
-              </p>
-            <h4>  Github : </h4>
-               <a v-bind:href="iteam.github "> {{ iteam.github }}</a>
-              <div v-show="describe_OP">
-                <ol
-                  class="C_content"
-                  v-for="iteamson in iteam.children"
-                  :key="iteamson.id"
-                >
-                  <li>{{ iteamson.details }}</li>
-                </ol>
-              </div>
-            </template>
-          </a-card-meta>
-        </a-card>
-      </div>
-    </div>
-    </div>
+    
   </div>
 </template>
 
@@ -109,8 +76,6 @@ export default ({
   setup() {},
   data() {
     return {
-      describe_OP:false,
-      Projects: "",
       LanguageSkills: "",
       Language: [],
       DataBase: [],
@@ -118,7 +83,6 @@ export default ({
       UI: [],
       Operation:[],
       Techlist: [],
-      Project: [],
     };
   },
    mounted : function(){
@@ -141,14 +105,14 @@ export default ({
           }
         )
         .then((response) => {
-          this.Projects = response.data.Projects;
           this.LanguageSkills = response.data.LanguageSkills;
           this.Language = response.data.Language;
           this.Framework = response.data.Framework;
           this.DataBase = response.data.DataBase;
           this.UI = response.data.UI;
           this.Operation = response.data.Operation;
-          this.Project = response.data.Project;
+          this.Techlist= response.data.Techlist;
+          
   
         })
         .catch(function (error) {
@@ -162,12 +126,7 @@ export default ({
 });
 </script>
 
-<style scoped>
-.container {
-  max-width: 100ch;
-  min-width: 40ch;
-  display: flex;
-}
+<style lang="less" scoped>
 .card {
   margin: 2ch;
   width: inherit;
@@ -175,25 +134,16 @@ export default ({
 .C_content {
   width: fit-content;
 }
-.box{
-    width: inherit;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  padding: 4ch;
-  margin-top: 4ch;
-  border-radius: 1.5ch;
-  margin: 3ch auto 3ch;
-  background: whitesmoke;
-}
+
 .abilitybox{
    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
-  min-width:fit-content;
+  width:fit-content;
   max-width: 120ch;
   margin: 4ch auto 4ch;
   background: whitesmoke;
 }
 .detail{
-  min-width:0px;
-  max-width: fit-content;
+  width:fit-content;
 }
 </style>

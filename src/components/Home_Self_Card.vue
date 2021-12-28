@@ -41,7 +41,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style  lang="less" scoped>
 
 
 .Self_Card {
@@ -53,15 +53,17 @@ export default {};
 }
 
 .back {
-  width:100%;
-  margin: 0 auto;
+  width: 100%;
+  height:100vh;
+   margin:0 0 0;
+    padding:0;
   background-image: url("http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/3G8A2675.jpg");
-  background-size: 100% ;
-  height: 150ch;
+  background-size: cover ;
+  
 }
 
 .wrap {
-  margin: 35ch 4ch 0 30ch;
+  margin: 5% 4ch 0 5%;
   float: left;
   position: relative;
   width: 400px;

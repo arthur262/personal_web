@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style lang="less" scoped>
 :root{
   --percentage:0%;
 }

@@ -84,6 +84,10 @@ export default defineComponent({
   margin: 16px 24px 16px 0;
   
 }
+#nav{
+  min-width: 1226px;
+  height: fit-content;
+}
 
 [data-theme='dark'] .site-layout-content {
   background: black;
