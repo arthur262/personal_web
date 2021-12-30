@@ -10,22 +10,22 @@
         border: 2px solid var(--grey1);
       "
     >
-      <h1 style="font-size: 1.5em"><b>YuanZhe Zhang(Arthur)</b></h1>
-      <h3>Phone: {{ phone_CN }} | {{ phone_CA }}</h3>
+      <h1 style="font-size: 1.5em"><b>{{name}}</b></h1>
+      <h3>{{Phone}} {{ phone_CN }} | {{ phone_CA }}</h3>
       <h3>
-        Email:<a
+       {{Email_L}} :<a
           href="mailto:arthur262@outlook.com"
           title="Send me the Email"
           >{{ email }}</a
         >
       </h3>
       <h3>
-        GitHub:
+        {{GitHub_L}}:
         <a href="https://github.com/arthur262" title="Github link">{{
           github
         }}</a>
       </h3>
-      <h3>Current: {{ Currentyear }}</h3>
+      <h3>{{Current_L}}: {{ Currentyear }}</h3>
     </div>
   </a-layout-header>
 </template>
@@ -40,11 +40,16 @@ export default {
 
   data() {
     return {
+      name:"",
       phone_CN: "",
       phone_CA: "",
+      Phone:"",
       email: "",
       github: "",
       Currentyear: "",
+      Email_L:"",
+      GitHub_L:"",
+      Current_L:"",
     };
   },
   mounted: function () {
@@ -66,9 +71,14 @@ export default {
         .then((response) => {
           this.phone_CN = response.data.phone_CN;
           this.phone_CA = response.data.phone_CA;
+          this.Phone=response.data.Phone;
           this.email = response.data.email;
           this.github = response.data.github;
           this.Currentyear = response.data.Currentyear;
+          this.Email_L = response.data.Email_L;
+          this.Current_L = response.data.Current_L;
+          this.GitHub_L = response.data.GitHub_L;
+          this.name = response.data.name;
         })
         .catch(function (error) {
           console.log(error);

@@ -70,6 +70,7 @@ export default ({
         )
         .then((response) => {
           this.Projects = response.data.Projects;
+          
           this.Project = response.data.Project;
   
         })
