@@ -12,32 +12,22 @@
       <!-- Switch box -->
       <a-row type="flex">
         <a-col :flex="2"></a-col>
-        <a-col :flex="3"
-          ><div class="switch">
-            <p style="float: left; margin-right: 1ch">
-              <b> Language Version : </b>
-            </p>
-            <a-switch
-              style="margin-right: 2ch"
-              checked-children="CN"
-              un-checked-children="EN"
-            />
-            <a-button
-              style="margin-left: 2ch; border-radius: 2ch"
-              type="primary"
-              >DownLoad</a-button
-            >
-            <br /></div
-        ></a-col>
+        <a-col :flex="4"
+          >
+            <a-button type="primary" @click="down()" class="switch" >
+              <cloud-download-outlined />
+              Download
+            </a-button>
+            </a-col>
         <a-col :flex="2"></a-col>
       </a-row>
-      
+
       <!-- content-->
       <a-layout-content class="Content">
-          <Main />
-          <Educationcontent />
-          <Skills />
-          <Project/>
+        <Main />
+        <Educationcontent />
+        <Skills />
+        <Project />
         <CVSide />
       </a-layout-content>
     </a-layout>
@@ -45,16 +35,20 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import axios from "axios";
-import Educationcontent from "../components/CV_Edu_Back.vue";
-import Main from "../components/CV_Main.vue";
-import Skills from "../components/CV_Skill.vue";
-import CVSide from "../components/CV_Side.vue";
-import Project from "../components/CV_Project.vue"
+import Educationcontent from "../components/CV/CV_Edu_Back.vue";
+import Main from "../components/CV/CV_Main.vue";
+import Skills from "../components/CV/CV_Skill.vue";
+import CVSide from "../components/CV/CV_Side.vue";
+import Project from "../components/CV/CV_Project.vue";
+import { CloudDownloadOutlined  } from '@ant-design/icons-vue';
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
-export default {
-  components: { Main, Skills, CVSide, Educationcontent,Project },
+
+const fileURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/Resume-En.docx";
+export default defineComponent({
+  components: { Main, Skills, CVSide, Educationcontent, Project,CloudDownloadOutlined },
   setup() {},
 
   data() {
@@ -93,8 +87,16 @@ export default {
           console.log(error);
         });
     },
+    down() {
+    let link = document.createElement("a"); 
+    link.style.display = "none"; 
+    link.href = fileURL; 
+    link.setAttribute("download", "CV_EN"); 
+    document.body.appendChild(link); 
+    link.click(); 
   },
-};
+  },
+});
 </script>
 
 <style lang="less" scoped>
@@ -105,8 +107,8 @@ export default {
 
 .Content {
   display: relative;
-  max-width: fit-content;
-  width: 150ch;
+  max-width: 150ch;;
+  width: 140ch;
   min-height: 150ch;
   max-height: fit-content;
   margin: 5ch auto 3ch;
@@ -114,6 +116,7 @@ export default {
 .switch {
   float: right;
   width: fit-content;
+  border-radius: 1.5ch;
 }
 .Content_Header h3 {
   line-height: 1.2em;

@@ -138,8 +138,8 @@ export default ({
 .abilitybox{
    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
-  width:fit-content;
-  max-width: 120ch;
+  width:inherit;
+  border-radius: 1.5ch;
   margin: 4ch auto 4ch;
   background: whitesmoke;
 }

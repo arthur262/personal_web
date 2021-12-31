@@ -9,7 +9,7 @@
             mode="horizontal"
             :style="{ lineHeight: '64px' }"
         >
-          <a-menu-item key="1">
+          <a-menu-item key="1" >
             <router-link to="/Home">
               <home-outlined />Home
             </router-link>

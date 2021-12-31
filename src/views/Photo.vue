@@ -8,9 +8,11 @@
       <a-layout-content class="head">
         <h2>{{ statement }}</h2>
       </a-layout-content>
-      <div v-if="false">
+      
       <waterfall />
-      </div>
+      
+      <a-back-top />
+      
     </a-layout>
   </div>
 </template>
@@ -21,7 +23,7 @@ const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Photo_detail_EN.json";
 import waterfall from "../components/Photo/Photo_waterfall.vue";
 import switchs from "../components/Photo/Photo_switch.vue";
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref  } from "vue";
 export default defineComponent({
   components: { waterfall,switchs},
   setup() {
@@ -30,6 +32,7 @@ export default defineComponent({
       console.log("use value", searchValue);
     };
     return {
+      
       value,
       onSearch,
     };
@@ -79,7 +82,7 @@ export default defineComponent({
   padding: 2ch;
   height: fit-content;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
-  border-radius: 4ch;
+  border-radius: 1.5ch;
   background-image: linear-gradient(
     to right,
     rgba(255, 255, 255, 1),

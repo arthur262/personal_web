@@ -6,6 +6,7 @@
         width: 70%;
         min-width:50ch;
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 1.5ch;
         padding: 4ch;
         border: 2px solid var(--grey1);
       "
@@ -100,7 +101,8 @@ export default {
   background-color: unset;
   text-align: center;
   min-width: 100ch;
-  width: 160ch;
+  width: 150ch;
+  border-radius: 1.5ch;
   line-height: 4ch;
   height: fit-content;
   display: flex;

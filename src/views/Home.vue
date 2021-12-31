@@ -11,10 +11,10 @@
 
 <script>
 // @ is an alias to /src
-import Scrolls from "../components/Home_Scroll.vue"
-import SelfCard from "../components/Home_Self_Card.vue";
-import Side from "../components/Home_Side.vue"
-import Intro from "../components/Home_Intro.vue"
+import Scrolls from "../components/Home/Home_Scroll.vue"
+import SelfCard from "../components/Home/Home_Self_Card.vue";
+import Side from "../components/Home/Home_Side.vue"
+import Intro from "../components/Home/Home_Intro.vue"
 
 export default {
   data() {

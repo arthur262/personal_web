@@ -77,7 +77,7 @@ export default ({
 .education {
   margin: 0 auto;
   min-width: fit-content;
-  width: 140ch;
+  width: inherit;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
   margin-top: 4ch;

@@ -9,6 +9,7 @@
         <h2>{{ statement }}</h2>
       </a-layout-content>
       <waterfall />
+      <a-back-top />
     </a-layout>
   </div>
 </template>

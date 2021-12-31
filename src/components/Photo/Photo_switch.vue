@@ -62,7 +62,7 @@
                 size="large"
                 enter-button
                 @search="onSearch"
-                class="inputbox"
+                style="border-radius:1.5ch"
               />
             </div>
           </a-col>
@@ -138,8 +138,8 @@ export default defineComponent({
 
 .tabs__tab--active {
   padding: 1ch;
-  border-top-left-radius: 2ch;
-  border-top-right-radius: 2ch;
+  border-top-left-radius: 1.5ch;
+  border-top-right-radius: 1.5ch;
 }
 
 .tabs__tab--inactive {
@@ -148,7 +148,7 @@ export default defineComponent({
 .tabs__tab_inactive_background {
   background-color: #f5f5f5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
-  border-radius: 4ch;
+  border-radius: 1.5ch;
   padding: 5px 1ch 3px;
   text-align: center;
   height: fit-content;
@@ -157,7 +157,7 @@ export default defineComponent({
   min-width: 15ch;
 }
 .tabs__tab_active_background {
-  border-radius: 4ch;
+  border-radius: 1.5ch;
   height: 6ch;
 }
 </style>
