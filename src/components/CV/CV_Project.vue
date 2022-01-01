@@ -2,7 +2,7 @@
   <div class="box" id="Project">
     <div style="display:flex" >
     <!--<bars-outlined/>-->
-    <h2>{{ Projects }}</h2>
+    <h2 class="w2">{{ Projects }}</h2>
     </div>
     <div class="card">
       <div v-for="(iteam,index) in Project.slice(0, 2)" :key="index"  style="height:max-content;width:46%; margin:0 2% 0">
@@ -12,12 +12,13 @@
          </div>
           <a-card-meta >
             <template #description>
-              <h2>{{ iteam.Title }}</h2>
+              <h2 class="w2">{{ iteam.Title }}</h2>
               <p>
                 <b>{{ iteam.TimeRanges }}</b>
               </p>
-            <h4>  Github : </h4>
+            <h4 > Github: 
                <a v-bind:href="iteam.github "> {{ iteam.github }}</a>
+               </h4>
               <div v-show="describe_OP">
                 <ol
                   class="C_content"
@@ -27,6 +28,7 @@
                   <li>{{ iteamson.details }}</li>
                 </ol>
               </div>
+              <fullscreen-outlined  class="icon"/>
             </template>
           </a-card-meta>
         </a-card>
@@ -40,12 +42,13 @@
          </div>
           <a-card-meta >
             <template #description>
-              <h2>{{ iteam.Title }}</h2>
+              <h2 class="w2">{{ iteam.Title }}</h2>
               <p>
                 <b>{{ iteam.TimeRanges }}</b>
               </p>
-            <h4>  Github : </h4>
+            <h4>  Github : 
                <a v-bind:href="iteam.github "> {{ iteam.github }}</a>
+               </h4>
               <div v-show="describe_OP">
                 <ol
                   class="C_content"
@@ -55,6 +58,7 @@
                   <li>{{ iteamson.details }}</li>
                 </ol>
               </div>
+              <fullscreen-outlined  class="icon" />
             </template>
           </a-card-meta>
         </a-card>
@@ -66,6 +70,7 @@
 <script>
 
 import axios from "axios";
+import {FullscreenOutlined} from '@ant-design/icons-vue';
 const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
 export default ({
@@ -110,7 +115,7 @@ export default ({
     },
   },
   components:{
-      //barsoutlined,
+      FullscreenOutlined,
   },
   
 });
@@ -139,8 +144,16 @@ export default ({
 }
 .container{
   border-radius: 1.5ch;
+  min-height: 55ch;
   height:max-content;
 }
 
+.icon{
+  position: absolute;
+  float: right;
+  right: 2ch;
+  bottom: 2ch;
+  font-size:24px;
+}
 
 </style>

@@ -18,8 +18,8 @@
 import axios from "axios";
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Photo_detail_EN.json";
-import waterfall from "../components/Photo/Photo_sky_waterfall.vue";
-import switchs from "../components/Photo/Photo_switch_sky .vue";
+import waterfall from "../../components/Photo/Photo_travel_waterfall  .vue";
+import switchs from "../../components/Photo/Photo_switch.vue";
 import { defineComponent, ref } from "vue";
 export default defineComponent({
   components: { waterfall,switchs},

@@ -1,7 +1,7 @@
 <template>
   <a-layout-header class="Content_Header">
     <div class="ID"></div>
-    <div style="
+    <div  style="
         background: whitesmoke;
         width: 70%;
         min-width:50ch;
@@ -12,21 +12,21 @@
       "
     >
       <h1 style="font-size: 1.5em"><b>{{name}}</b></h1>
-      <h3>{{Phone}} {{ phone_CN }} | {{ phone_CA }}</h3>
-      <h3>
+      <h3 class="w3">{{Phone}} {{ phone_CN }} | {{ phone_CA }}</h3>
+      <h3 class="w3">
        {{Email_L}} :<a
           href="mailto:arthur262@outlook.com"
           title="Send me the Email"
           >{{ email }}</a
         >
       </h3>
-      <h3>
+      <h3 class="w3">
         {{GitHub_L}}:
         <a href="https://github.com/arthur262" title="Github link">{{
           github
         }}</a>
       </h3>
-      <h3>{{Current_L}}: {{ Currentyear }}</h3>
+      <h3 class="w3">{{Current_L}}: {{ Currentyear }}</h3>
     </div>
   </a-layout-header>
 </template>

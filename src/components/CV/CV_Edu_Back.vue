@@ -1,9 +1,9 @@
 <template>
  <!--  Bckground education-->
-          <a-layout-content class="education" id="Education">
+          <a-layout-content class="education " id="Education">
             <div>
-              <h1 class="Label">Education BackGround</h1>
-              <h3 style="font-size: 1.3em">
+              <h1 class="w2 Label ">Education BackGround</h1>
+              <h3 class="w1">
                 <b>{{ Bacher }}</b>
               </h3>
               <div style="height: 4ch; font-size: 1em">
@@ -86,6 +86,6 @@ export default ({
 }
 .Label {
   font-family: "MILanPro_MEDIUM--GB1-4";
-  font-size: 2.2em;
+  font-size: 1.7em;
 }
 </style>

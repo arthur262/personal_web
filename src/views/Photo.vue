@@ -1,16 +1,21 @@
 <template>
   <div class="Photo">
     <a-layout>
+      <a-page-header
+          style="border: 0px solid rgb(235, 237, 240); margin-left:2%;"
+          title="Photo"
+          @back="() => $router.back()"
+        />
       <!-- -->
       <a-layout-content class="head">
       <switchs/>
       </a-layout-content>
       <a-layout-content class="head">
-        <h2>{{ statement }}</h2>
+        <h2 class="w2" style="text-alient:center; margin: 0;">{{ statement }}</h2>
       </a-layout-content>
-      
+      <router-view>
       <waterfall />
-      
+      </router-view>
       <a-back-top />
       
     </a-layout>
@@ -76,7 +81,6 @@ export default defineComponent({
   position: relative;
   max-width: 100%;
   width: 140vh;
-
   min-width: 60vh;
   margin: 5ch auto 0;
   padding: 2ch;
@@ -88,5 +92,6 @@ export default defineComponent({
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
   );
+  justify-content: center;
 }
 </style>

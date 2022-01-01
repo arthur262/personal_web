@@ -78,12 +78,13 @@ export default {
     fresh(){
       let [...waterfallData] = this.waterfallData;
     let [...newWaterfallData] = [[], [], []];
-    let container=[true,true,true];
+    waterfallData.sort(function(){return Math.random()>0.5?-1:1;})
+    
     waterfallData.forEach((el, i) => {
-      var bool=this.isHorzeontal(el);
+      
       
       //如果第一行不能进入
-      if(container[i%3]==true){
+      
         switch (i % 3) {
         case 0:
           newWaterfallData[0].push(el);
@@ -96,63 +97,7 @@ export default {
           break;
       
       }
-        bool ? container[i%3]=true : container[i%3]=false;
-      }
-      else{
-        //放入list
-        i++;
-      }
-      //完成第一行之后判断第二行
-      if(container[i%3]!=true){
-        i++;
-      }
-      else{
-        //放入list
-        switch (i % 3) {
-        case 0:
-          newWaterfallData[0].push(el);
-          break;
-        case 1:
-          newWaterfallData[1].push(el);
-          break;
-        case 2:
-          newWaterfallData[2].push(el);
-          break;
-      }
-        bool ? container[i%3]=true : container[i%3]=false;
-      }
-      //完成第二行之后判断第三行
-      if(container[i%3]!=true){
-        i++;
-      }else{
-        //放入list
-        switch (i % 3) {
-        case 0:
-          newWaterfallData[0].push(el);
-          break;
-        case 1:
-          newWaterfallData[1].push(el);
-          break;
-        case 2:
-          newWaterfallData[2].push(el);
-          break;
-      }
-        bool ? container[i%3]=true : container[i%3]=false;
-      }
-
-      //如果三个list目前都是竖图,直接放入第一行
-       switch ((i-2) % 3) {
-        case 0:
-          newWaterfallData[0].push(el);
-          break;
-        case 1:
-          newWaterfallData[1].push(el);
-          break;
-        case 2:
-          newWaterfallData[2].push(el);
-          break;
-      }
-        bool ? container[(i-2)%3]=true : container[(i-2)%3]=false;
+      
       
     });
     this.newWaterfallData = newWaterfallData;

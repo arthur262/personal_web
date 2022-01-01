@@ -63,7 +63,7 @@ export default {
     },
     fresh(){
       let [...waterfallData] = this.waterfallData;
-    console.log(this.waterfallData)
+    
     let [...newWaterfallData] = [[], [], []];
     waterfallData.forEach((el, i) => {
       switch (i % 3) {
