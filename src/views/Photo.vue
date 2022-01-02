@@ -13,9 +13,7 @@
       <a-layout-content class="head">
         <h2 class="w2" style="text-alient:center; margin: 0;">{{ statement }}</h2>
       </a-layout-content>
-      <router-view>
       <waterfall />
-      </router-view>
       <a-back-top />
       
     </a-layout>
@@ -37,7 +35,6 @@ export default defineComponent({
       console.log("use value", searchValue);
     };
     return {
-      
       value,
       onSearch,
     };
@@ -46,10 +43,12 @@ export default defineComponent({
     return {
       statement:
         "",
+        current: "",
     };
   },
   mounted: function () {
     this.getdata();
+    console.log(this.current);
   },
   methods: {
     getdata() {

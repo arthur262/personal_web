@@ -1,5 +1,8 @@
 <template>
   <div>
+    <button v-on:click="show()" style="margin: 0 auto">
+      {{ informational }}
+    </button>
     <div class="waterfall px-container clearfix" v-cloak>
       <a-image-preview-group>
         <div
@@ -7,7 +10,6 @@
           v-for="(el, i) in newWaterfallData"
           :key="i"
         >
-        
           <a-card
             hoverable
             style="width: "
@@ -15,45 +17,48 @@
             :key="index"
             class="card_div"
           >
-            <template #cover>
-              
-              <a-image :src="item.u_img" alt="example" loading="lazy" />
-            
+            <template #cover >
+              <a-image :src="item.u_img" alt="example" loading="lazy" style="border-radius:1ch ;"/>
             </template>
           </a-card>
-        
         </div>
       </a-image-preview-group>
-      
     </div>
-    <div class="switchbar" >
+    <div class="switchbar">
       <a-pagination v-model:current="current" :total="50" />
-      </div>
+    </div>
   </div>
 </template>
 <script>
 import axios from "axios";
-import { ref  } from "vue";
+import { ref } from "vue";
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Photo_Src.json";
 export default {
+  props: {
+    informational: {
+      type: String,
+      default: () => {
+        
+      },
+    },
+  },
   setup() {
-    return{
-      current:ref(1), 
-    }
+    return {
+      current: ref(1),
+    };
   },
   data() {
     return {
-      waterfallData:"",
+      selectedKeys: "Sky",
+      waterfallData: "",
       newWaterfallData: "",
     };
   },
   mounted: function () {
     this.getdata();
   },
-  created() {
-    
-  },
+  created() {},
   methods: {
     getdata() {
       axios
@@ -68,45 +73,66 @@ export default {
           }
         )
         .then((response) => {
-          this.waterfallData=response.data.Traveller.concat(response.data.Landscape.concat(response.data.Sky));
-            this.fresh();
+          this.waterfallData = this.condition(
+            response.data.Traveller,
+            response.data.Landscape,
+            response.data.Sky
+          );
+          this.fresh();
         })
         .catch(function (error) {
           console.log(error);
         });
     },
-    fresh(){
+    fresh() {
       let [...waterfallData] = this.waterfallData;
-    let [...newWaterfallData] = [[], [], []];
-    waterfallData.sort(function(){return Math.random()>0.5?-1:1;})
-    
-    waterfallData.forEach((el, i) => {
-      
-      
-      //如果第一行不能进入
-      
+      let [...newWaterfallData] = [[], [], []];
+      waterfallData.sort(function () {
+        return Math.random() > 0.5 ? -1 : 1;
+      });
+
+      waterfallData.forEach((el, i) => {
+        //如果第一行不能进入
+
         switch (i % 3) {
-        case 0:
-          newWaterfallData[0].push(el);
-          break;
-        case 1:
-          newWaterfallData[1].push(el);
-          break;
-        case 2:
-          newWaterfallData[2].push(el);
-          break;
-      
-      }
-      
-      
-    });
-    this.newWaterfallData = newWaterfallData;
+          case 0:
+            newWaterfallData[0].push(el);
+            break;
+          case 1:
+            newWaterfallData[1].push(el);
+            break;
+          case 2:
+            newWaterfallData[2].push(el);
+            break;
+        }
+      });
+      this.newWaterfallData = newWaterfallData;
     },
-    isHorzeontal(element){
-      var img=new Image();
-      img.src =element.u_img;
-      img.onload=function(){
-      return img.width>img.height? true:false;
+    isHorzeontal(element) {
+      var img = new Image();
+      img.src = element.u_img;
+      img.onload = function () {
+        return img.width > img.height ? true : false;
+      };
+    },
+    show() {
+      console.log(this.informational);
+    },
+    condition(el1, el2, el3) {
+      if (this.selectedKeys == "all") {
+        return el1.concat(el2.concat(el3.concat));
+      }
+      else if(this.selectedKeys == "Sky")
+      {
+        return el3
+      }
+      else if(this.selectedKeys == "Landscape")
+      {
+        return el2;
+      }
+      else if(this.selectedKeys == "Travel")
+      {
+        return el1;
       }
     },
   },
@@ -145,6 +171,6 @@ export default {
 }
 .switchbar {
   margin: 0 auto;
-  width:fit-content;
+  width: fit-content;
 }
 </style>

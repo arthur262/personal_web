@@ -1,27 +1,26 @@
 <template>
   
         <a-row type="flex">
+          
+          <div v-if="false">
+            <waterfall
+            :informational="pagekey"
+            />
+          </div>
+         
           <a-col :flex="2">
             <a-menu v-model:selectedKeys="current" mode="horizontal">
-              <a-menu-item key="all">
-                <router-link to="/Photo">
+              <a-menu-item key="all" v-on:click="transfer('all')">
                 {{AllLabels}}
-                </router-link>
               </a-menu-item>
-              <a-menu-item key="Sky">
-                <router-link to="/Photo/Sky">
+              <a-menu-item key="Sky" v-on:click="transfer('Sky')">
                 {{Sky}}
-                </router-link>
               </a-menu-item>
-              <a-menu-item key="Landscape">
-                <router-link to="/Photo/Landscape">
+              <a-menu-item key="Landscape" v-on:click="transfer('Landscape')">
                 {{Landscape}}
-                </router-link>
               </a-menu-item>
-              <a-menu-item key="Travel">
-                <router-link to="/Photo/Travel">
+              <a-menu-item key="Travel" v-on:click="transfer('Travel')">
                 {{Travel}}
-                </router-link>
               </a-menu-item>
             </a-menu>
           </a-col>
@@ -31,8 +30,8 @@
               style="
                 float: right;
                 height: 5ch;
-                margin-top: 2ch;
-                margin-right: 3ch;
+                margin: auto 2ch auto;
+                
               "
             >
               <a-input-search
@@ -51,14 +50,15 @@
 </template>
 
 <script>
+import waterfall from "./Photo_waterfall.vue";
 import axios from "axios";
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Photo_detail_EN.json";
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-  components: {  },
+  components: { waterfall },
   setup() {
-     
+    const current = ref(['all']);
     const value = ref("");
     const onSearch = (searchValue) => {
       console.log("use value", searchValue);
@@ -66,17 +66,19 @@ export default defineComponent({
     return {
       value,
       onSearch,
+      current,
       
     };
   },
   data() {
     return {
-      current : ref(['all']),
+      selected:"",
       AllLabels: "",
       Landscape: "",
       Sky: "",
       Travel: "",
       statement:"",
+      pagekey: "",
     };
   },
   mounted: function () {
@@ -106,6 +108,10 @@ export default defineComponent({
           console.log(error);
         });
     },
+    transfer(el){
+     this.pagekey=el;
+    this.selected=el;
+    }
   },
 });
 </script>
