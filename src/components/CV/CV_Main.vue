@@ -93,7 +93,7 @@ export default {
 .ID {
   height: 24ch;
   width: 24ch;
-  background-image: url("https://web.cs.dal.ca/~yuanzhe/personal-web/image/Personal.jpg");
+  background-image: url("http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/Personal.jpg");
   background-size: 24ch;
   margin:auto 3ch auto ;
 }
