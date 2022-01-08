@@ -1,6 +1,7 @@
 <template>
  <!--  Bckground education-->
           <a-layout-content class="education " id="Education">
+            <a-skeleton :loading="loading" active>
             <div>
               <h1 class="w2 Label ">Education BackGround</h1>
               <h3 class="w1">
@@ -17,16 +18,22 @@
                 
               </ul>
             </div>
+            </a-skeleton>
           </a-layout-content>
   
 </template>
 
 <script>
 import axios from "axios";
+import {ref } from 'vue';
 const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 export default ({
   components: {},
   setup() {
+    const loading = ref(true);
+    return{ 
+      loading
+    }
   },
 
   data() {
@@ -42,6 +49,7 @@ export default ({
   },
   mounted: function () {
     this.getdata();
+    this.unload();
     
   },
   methods: {
@@ -69,6 +77,11 @@ export default ({
           console.log(error);
         });
     },
+    unload (){
+    setTimeout(() =>{
+      this.loading=false;
+    },1200)
+  },
   },
 });
 </script>

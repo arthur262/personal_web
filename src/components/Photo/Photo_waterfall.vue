@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button v-on:click="show()" style="margin: 0 auto">
-      {{ informational }}
-    </button>
+    <a-button v-on:click="show()" style="margin: 0 auto">
+      {{ informational }} 1111
+    </a-button>
     <div class="waterfall px-container clearfix" v-cloak>
       <a-image-preview-group>
         <div
@@ -36,12 +36,10 @@ const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Photo_Src.json";
 export default {
   props: {
-    informational: {
+    informational:{
       type: String,
-      default: () => {
-        
+      default: ""  
       },
-    },
   },
   setup() {
     return {

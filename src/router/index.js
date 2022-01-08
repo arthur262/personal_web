@@ -1,9 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import CV from '../views/CV.vue'
-import Landscape from '../views/Photo/Landscape.vue'
-import Sky from '../views/Photo/Sky.vue'
-import Travel from '../views/Photo/Travel.vue'
 import Photo from '../views/Photo.vue'
 const routes = [
   {
@@ -27,21 +24,6 @@ const routes = [
     name: 'Photo',
     component: Photo
     },
-  {
-    path: '/Photo/Landscape',
-    name: 'Landscape',
-    component: Landscape
-    },
-    {
-    path: '/Photo/Sky',
-    name: 'Sky',
-    component: Sky
-    },
-    {
-    path: '/Photo/Travel',
-    name: 'Travel',
-    component: Travel
-  },
 
 
 

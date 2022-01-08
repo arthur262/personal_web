@@ -12,7 +12,7 @@
           "
         />
         <a-menu
-          v-model:selectedKeys="selectedKeys"
+          :default-selected-keys="selectedKeys"
           theme="dark"
           mode="horizontal"
           :style="{ lineHeight: '64px' }"
@@ -41,19 +41,18 @@
 <script>
 import "./global/word.css"
 
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
         import { EditOutlined } from '@ant-design/icons-vue';
         import { HomeOutlined } from '@ant-design/icons-vue';
 
 export default defineComponent({
   setup(){
     
+    
   },
   data(){
     return {
-      selectedKeys: ref(
-        ['1']
-        ),
+      selectedKeys: ['1'],
         
     }
   },
@@ -66,6 +65,7 @@ export default defineComponent({
     open(indexs) {
       this.selectedKeys[0]=indexs;
       console.log(this.selectedKeys);
+      
     },
     
   },

@@ -1,6 +1,7 @@
 <template>
   <div>
     <!--  Ability Box    -->
+    <a-skeleton :loading="loading" active>
     <div class="abilitybox" id="Ability">
       <h3 class="w2">{{ LanguageSkills }}</h3>
       <a-descriptions bordered>
@@ -65,17 +66,22 @@
         </ul>
       </ul>
     </div>
+     </a-skeleton>
     <!--  Project Box    -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { ref } from 'vue';
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
 export default {
-  setup() {},
+  setup() { const loading = ref(true);
+    return{ 
+      loading
+    }},
   data() {
     return {
       LanguageSkills: "",
@@ -89,6 +95,7 @@ export default {
   },
   mounted: function () {
     this.getdata();
+    this.unload();
   },
   methods: {
     move() {
@@ -119,6 +126,11 @@ export default {
           console.log(error);
         });
     },
+    unload (){
+    setTimeout(() =>{
+      this.loading=false;
+    },1400)
+  },
   },
   components: {
     //barsoutlined,

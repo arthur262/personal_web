@@ -1,6 +1,7 @@
 <template>
   <a-layout-header class="Content_Header">
     <div class="ID"></div>
+    <a-skeleton :loading="loading" active>
     <div  style="
         background: whitesmoke;
         width: 70%;
@@ -28,16 +29,23 @@
       </h3>
       <h3 class="w3">{{Current_L}}: {{ Currentyear }}</h3>
     </div>
+    </a-skeleton>
   </a-layout-header>
 </template>
 
 <script>
+import {ref } from 'vue';
 import axios from "axios";
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 export default {
   components: {},
-  setup() {},
+  setup() {
+    const loading = ref(true);
+    return{ 
+      loading
+    }
+  },
 
   data() {
     return {
@@ -55,6 +63,7 @@ export default {
   },
   mounted: function () {
     this.getdata();
+    this.unload();
   },
   methods: {
     getdata() {
@@ -85,6 +94,11 @@ export default {
           console.log(error);
         });
     },
+    unload (){
+    setTimeout(() =>{
+      this.loading=false;
+    },1000)
+  },
   },
 };
 </script>

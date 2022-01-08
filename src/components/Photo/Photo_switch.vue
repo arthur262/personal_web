@@ -2,7 +2,7 @@
   
         <a-row type="flex">
           
-          <div v-if="false">
+          <div v-show="false">
             <waterfall
             :informational="pagekey"
             />

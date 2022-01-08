@@ -24,18 +24,27 @@
 
       <!-- content-->
       <a-layout-content class="Content">
+        
         <Main />
+        
+        
         <Educationcontent />
+        
+        
         <Skills />
+        
+       
         <Project />
+        
         <CVSide />
+       
       </a-layout-content>
     </a-layout>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent,ref } from 'vue';
 import axios from "axios";
 import Educationcontent from "../components/CV/CV_Edu_Back.vue";
 import Main from "../components/CV/CV_Main.vue";
@@ -49,7 +58,12 @@ const basicURL =
 const fileURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/Resume-En.docx";
 export default defineComponent({
   components: { Main, Skills, CVSide, Educationcontent, Project,CloudDownloadOutlined },
-  setup() {},
+  setup() {
+    const loading = ref(true);
+    return{ 
+      loading
+    }
+  },
 
   data() {
     return {
@@ -62,6 +76,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.getdata();
+    this.unload();
   },
   methods: {
     getdata() {
@@ -95,7 +110,12 @@ export default defineComponent({
     document.body.appendChild(link); 
     link.click(); 
   },
+  unload (){
+    setTimeout(() =>{
+      this.loading=false;
+    },1000)
   },
+  }
 });
 </script>
 

@@ -1,5 +1,6 @@
 <template>
   <div class="box" id="Project">
+    <a-skeleton :loading="loading" active>
     <div style="display:flex" >
     <!--<bars-outlined/>-->
     <h2 class="w2">{{ Projects }}</h2>
@@ -64,17 +65,24 @@
         </a-card>
       </div>
     </div>
+    </a-skeleton>
     </div>
 </template>
 
 <script>
 
 import axios from "axios";
+import { ref } from 'vue';
 import {FullscreenOutlined} from '@ant-design/icons-vue';
 const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
 export default ({
-  setup() {},
+  setup() {
+    const loading = ref(true);
+    return{ 
+      loading
+    }
+  },
   data() {
     return {
       describe_OP:false,
@@ -84,6 +92,7 @@ export default ({
   },
    mounted : function(){
           this.getdata();
+          this.unload();
       },
   methods: {
     move(){
@@ -113,6 +122,11 @@ export default ({
           console.log(error);
         });
     },
+    unload (){
+    setTimeout(() =>{
+      this.loading=false;
+    },1600)
+  },
   },
   components:{
       FullscreenOutlined,
