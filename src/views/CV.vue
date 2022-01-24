@@ -23,28 +23,34 @@
       </a-row>
 
       <!-- content-->
+      <div style="display:flex;wdith:fit-content;margin:0 auto;">
       <a-layout-content class="Content">
-        
+        <!--div 数字是用于动画的 -->
+        <div id="div1" >
         <Main />
-        
-        
+        </div>
+        <div id="div2">
         <Educationcontent />
-        
-        
+        </div>
+        <div id="div3">
         <Skills />
-        
-       
+        </div>
+       <div id="div4">
         <Project />
-        
-        <CVSide />
+        </div>
+      
        
       </a-layout-content>
+      <div style="width:15ch;">
+        <CVSide />
+        </div>
+      </div>
     </a-layout>
   </div>
 </template>
 
 <script>
-import { defineComponent,ref } from 'vue';
+import { defineComponent } from 'vue';
 import axios from "axios";
 import Educationcontent from "../components/CV/CV_Edu_Back.vue";
 import Main from "../components/CV/CV_Main.vue";
@@ -59,10 +65,6 @@ const fileURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/Resume-En
 export default defineComponent({
   components: { Main, Skills, CVSide, Educationcontent, Project,CloudDownloadOutlined },
   setup() {
-    const loading = ref(true);
-    return{ 
-      loading
-    }
   },
 
   data() {
@@ -76,7 +78,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.getdata();
-    this.unload();
+    this.load();
   },
   methods: {
     getdata() {
@@ -110,11 +112,17 @@ export default defineComponent({
     document.body.appendChild(link); 
     link.click(); 
   },
-  unload (){
-    setTimeout(() =>{
-      this.loading=false;
-    },1000)
-  },
+   load() {
+    document.getElementById("div1").className = "fade-in-section";
+    document.getElementById("div1").style.animationDelay="0s";
+    document.getElementById("div2").className = "fade-in-section";
+    document.getElementById("div2").style.animationDelay="0.2s";
+    document.getElementById("div3").className = "fade-in-section";
+    document.getElementById("div3").style.animationDelay="0.4s";
+    document.getElementById("div4").className = "fade-in-section";
+    document.getElementById("div4").style.animationDelay="0.6s";
+
+},
   }
 });
 </script>
@@ -127,11 +135,10 @@ export default defineComponent({
 
 .Content {
   display: relative;
-  max-width: 150ch;;
-  width: 140ch;
+  max-width: 100ch;
+  min-width: 70ch;
   min-height: 150ch;
   max-height: fit-content;
-  margin: 5ch auto 3ch;
 }
 .switch {
   float: right;

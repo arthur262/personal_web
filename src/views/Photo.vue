@@ -97,7 +97,6 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   components: {},
   setup() {
-    /* curent 用于定位当前页面选择的位置*/
     
     const value = ref("");
     const onSearch = (searchValue) => {

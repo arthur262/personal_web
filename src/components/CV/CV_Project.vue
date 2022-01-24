@@ -1,25 +1,36 @@
 <template>
   <div class="box" id="Project">
-    <a-skeleton :loading="loading" active>
-    <div style="display:flex" >
-    <!--<bars-outlined/>-->
-    <h2 class="w2">{{ Projects }}</h2>
+    <div style="display: flex">
+      <!--<bars-outlined/>-->
+      <h2 class="w2">{{ Projects }}</h2>
     </div>
     <div class="card">
-      <div v-for="(iteam,index) in Project.slice(0, 2)" :key="index"  style="height:max-content;width:46%; margin:0 2% 0">
-        <a-card hoverable class="container" @click="move" >
-         <div style="margin:0 auto; width:fit-content; margin-bottom:2ch;">
-            <img v-bind:src="iteam.pciture"  height="200" width="200" size="10ch">
-         </div>
-          <a-card-meta >
+      <div
+        v-for="(iteam, index) in Project.slice(0, 2)"
+        :key="index"
+        style="height: fit-content; width: 40ch; margin: 0 auto"
+      >
+        <a-card hoverable class="container" @click="move">
+          <div style="margin: 0 auto; width: fit-content; margin-bottom: 2ch">
+            <!--project image -->
+            <img
+              v-bind:src="iteam.pciture"
+              height="180"
+              width="180"
+              size="10ch"
+            />
+          </div>
+          <!-- card description -->
+          <a-card-meta>
             <template #description>
               <h2 class="w2">{{ iteam.Title }}</h2>
-              <p>
+              <p style="margin:0">
                 <b>{{ iteam.TimeRanges }}</b>
               </p>
-            <h4 > Github: 
-               <a v-bind:href="iteam.github "> {{ iteam.github }}</a>
-               </h4>
+              <h4  style="margin:0">
+                Github:
+                <a v-bind:href="iteam.github"> {{ iteam.github }}</a>
+              </h4>
               <div v-show="describe_OP">
                 <ol
                   class="C_content"
@@ -29,27 +40,37 @@
                   <li>{{ iteamson.details }}</li>
                 </ol>
               </div>
-              <fullscreen-outlined  class="icon"/>
+              <fullscreen-outlined class="icon" />
             </template>
           </a-card-meta>
         </a-card>
       </div>
     </div>
     <div class="card">
-      <div v-for="(iteam,index) in Project.slice(2, 4)" :key="index"  style="height:max-content;width:46%; margin:0 2% 0">
-        <a-card hoverable class="container" @click="move" >
-         <div style="margin:0 auto; width:fit-content; margin-bottom:2ch;">
-            <img v-bind:src="iteam.pciture"  height="200" width="200" size="10ch">
-         </div>
-          <a-card-meta >
+      <div
+        v-for="(iteam, index) in Project.slice(2, 4)"
+        :key="index"
+        style="height: max-content; width: 40ch; margin: 0 auto"
+      >
+        <a-card hoverable class="container" @click="move">
+          <div style="margin: 0 auto; width: fit-content; margin-bottom: 2ch">
+            <img
+              v-bind:src="iteam.pciture"
+              height="200"
+              width="200"
+              size="10ch"
+            />
+          </div>
+          <a-card-meta>
             <template #description>
               <h2 class="w2">{{ iteam.Title }}</h2>
               <p>
                 <b>{{ iteam.TimeRanges }}</b>
               </p>
-            <h4>  Github : 
-               <a v-bind:href="iteam.github "> {{ iteam.github }}</a>
-               </h4>
+              <h4>
+                Github :
+                <a v-bind:href="iteam.github"> {{ iteam.github }}</a>
+              </h4>
               <div v-show="describe_OP">
                 <ol
                   class="C_content"
@@ -59,47 +80,39 @@
                   <li>{{ iteamson.details }}</li>
                 </ol>
               </div>
-              <fullscreen-outlined  class="icon" />
+              <fullscreen-outlined class="icon" />
             </template>
           </a-card-meta>
         </a-card>
       </div>
     </div>
-    </a-skeleton>
-    </div>
+  </div>
 </template>
 
 <script>
-
 import axios from "axios";
-import { ref } from 'vue';
-import {FullscreenOutlined} from '@ant-design/icons-vue';
-const basicURL = "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
+import { FullscreenOutlined } from "@ant-design/icons-vue";
+const basicURL =
+  "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
-export default ({
-  setup() {
-    const loading = ref(true);
-    return{ 
-      loading
-    }
-  },
+export default {
+  setup() {},
   data() {
     return {
-      describe_OP:false,
+      describe_OP: false,
       Projects: "",
       Project: [],
     };
   },
-   mounted : function(){
-          this.getdata();
-          this.unload();
-      },
+  mounted: function () {
+    this.getdata();
+  },
   methods: {
-    move(){
-      this.describe_OP =!this.describe_OP;
+    move() {
+      this.describe_OP = !this.describe_OP;
     },
-    
-       getdata() {
+
+    getdata() {
       axios
         .get(
           basicURL,
@@ -113,61 +126,49 @@ export default ({
         )
         .then((response) => {
           this.Projects = response.data.Projects;
-          this.Project=response.data.Project;
-          
-          
-  
+          this.Project = response.data.Project;
         })
         .catch(function (error) {
           console.log(error);
         });
     },
-    unload (){
-    setTimeout(() =>{
-      this.loading=false;
-    },1600)
   },
+  components: {
+    FullscreenOutlined,
   },
-  components:{
-      FullscreenOutlined,
-  },
-  
-});
+};
 </script>
 
 <style lang="less" scoped>
-.box{
-    width: inherit;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+.box {
+  width: inherit;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding: 4ch;
   border-radius: 1.5ch;
   margin: 3ch auto 3ch;
   background: whitesmoke;
-  
 }
 .card {
-    display:flex;
+  display: flex;
   width: 100%;
   margin: 0 auto;
   height: fit-content;
   border-radius: 1.5ch;
-  
 }
-.card div{
+.card div {
   margin: 1ch;
 }
-.container{
+.container {
   border-radius: 1.5ch;
   min-height: 55ch;
-  height:max-content;
+  height: max-content;
 }
 
-.icon{
+.icon {
   position: absolute;
   float: right;
   right: 2ch;
   bottom: 2ch;
-  font-size:24px;
+  font-size: 24px;
 }
-
 </style>

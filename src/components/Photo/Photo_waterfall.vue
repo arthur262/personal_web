@@ -145,7 +145,7 @@ export default {
 .card_div {
   margin: 2ch auto 2ch;
   border-radius: 1.5ch;
-  padding: 2ch;
+  padding: 1ch;
 }
 .left {
   float: left;

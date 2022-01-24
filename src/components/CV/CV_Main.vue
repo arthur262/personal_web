@@ -1,14 +1,13 @@
 <template>
   <a-layout-header class="Content_Header">
     <div class="ID"></div>
-    <a-skeleton :loading="loading" active>
     <div  style="
         background: whitesmoke;
-        width: 70%;
-        min-width:50ch;
+        width: fit-content;
+        min-width:30ch;
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
         border-radius: 1.5ch;
-        padding: 4ch;
+        padding: 4ch 10ch 4ch;
         border: 2px solid var(--grey1);
       "
     >
@@ -18,6 +17,7 @@
        {{Email_L}} :<a
           href="mailto:arthur262@outlook.com"
           title="Send me the Email"
+          style="color:black"
           >{{ email }}</a
         >
       </h3>
@@ -29,22 +29,19 @@
       </h3>
       <h3 class="w3">{{Current_L}}: {{ Currentyear }}</h3>
     </div>
-    </a-skeleton>
+    
   </a-layout-header>
 </template>
 
 <script>
-import {ref } from 'vue';
+
 import axios from "axios";
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 export default {
   components: {},
   setup() {
-    const loading = ref(true);
-    return{ 
-      loading
-    }
+   
   },
 
   data() {
@@ -63,7 +60,6 @@ export default {
   },
   mounted: function () {
     this.getdata();
-    this.unload();
   },
   methods: {
     getdata() {
@@ -94,11 +90,7 @@ export default {
           console.log(error);
         });
     },
-    unload (){
-    setTimeout(() =>{
-      this.loading=false;
-    },1000)
-  },
+   
   },
 };
 </script>
@@ -114,8 +106,7 @@ export default {
 .Content_Header {
   background-color: unset;
   text-align: center;
-  min-width: 100ch;
-  width: 150ch;
+  width: fit-content;
   border-radius: 1.5ch;
   line-height: 4ch;
   height: fit-content;

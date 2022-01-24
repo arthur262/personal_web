@@ -9,7 +9,7 @@
           </div>
          
           <a-col :flex="2">
-            <a-menu v-model:selectedKeys="current" mode="horizontal">
+            <a-menu v-model:selectedKeys="current" mode="horizontal" >
               <a-menu-item key="all" v-on:click="transfer('all')">
                 {{AllLabels}}
               </a-menu-item>

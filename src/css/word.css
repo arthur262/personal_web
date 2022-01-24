@@ -3,18 +3,22 @@
     font-size: 1em;
     font-family: "Helvetica Neue";
     color: black;
-    line-height: 0.5em; 
+    line-height: 1.2em; 
     font-weight: normal;
+    margin: 0;
 }
 /* 用于二级描述文字*/
 .w2{
     font-size: 1.5em;
     font-family: "Helvetica Neue";
+    line-height: 1.2em; 
     font-weight: bold;
+    margin: 0 0 1ch 0;
 }
 /* 三级描述文字*/
 .w3{
     font-size: 1em;
     font-family: "Helvetica Neue";
     font-weight: bold;
+    margin: 0;
 }
